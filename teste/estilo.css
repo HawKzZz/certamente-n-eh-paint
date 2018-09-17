@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
+/*fontes*/
+@font-face	{
+    font-family: 'bubblegum';
+    src: url("_fonts/bubblegum-sans-regular.otf");
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #606060;
+    vertical-align: middle;
+}
+
+ul{
+    list-style: none;
+    display:table-row;
+}
+
+li{
+    margin: 5px 5px 18px 15px; /*cima direita baixo esquerda*/
+    vertical-align: middle;
+}
+
+button{
+    box-shadow: 4px 5px 6px rgba(0, 0, 0, .6);
+}
+
+p{
+    text-align: center;
+}
+
+.interface{
+    margin: -20px -5.5% 0px auto;
+}
+
+.corpo{
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+    width: 80%;
+    overflow: hidden;
+}
+
+.corpo header#cabecalho h1{
+    font: 30pt bubblegum;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+.painel{
+    float: left;
+    width: 97%;
+    height: 500px;
+    background-color: black;
+    margin: 20px;
+}
+/* paineis*/
+.aside-esquerda{
+    border: 1px #000 solid;
+    float: left;
+    margin: 20px;
+    padding-left: -20px;
+    background-color: white;
+    box-shadow: 0px 0px 05px rgba(0,0,0,.6);
+}
+
+.corpo{
+    border: 1px #000 solid;
+    float: left;
+    margin: 20px;
+}
+
+.aside-direita{
+    border-left: 1px #000 solid;
+    float: left;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.6);
+    vertical-align: middle;
+}
+
+/* FIGURES*/
+
+.segment{background-image: url('img/line.jpg'); background-size: 62px 60px;}
+
+.dot{background-image: url('img/dot.jpg'); background-size: 60px 45px;}
+
+.triangle{background-image: url('img/triangle.jpg'); background-size: 62px 59px;}
+
+.square{background-image: url('img/square.jpg'); background-size: 60px 59px;}
+
+.pentagon{background-image: url('img/pentagon.jpg'); background-size: 62px 60px;}
+
+.trapezoid{background-image: url('img/trapezoid.jpg'); background-size: 62px 60px;}
+
+.circle{background-image: url('img/circle.jpg'); background-size: 55px 53px;}
+
+.btn-size{
+    height: 50px;
+    width: 52px;
+    margin: 10px 10px 0 0;
+    border-radius: 10px;
+}
+
+.forma{
+    height: 60px;
+    width: 62px;
+    margin: 10px 10px 0 0;
+    border-top-left-radius: 10px;
+}
+
+/* FOOTER */
+
+.rodape {
+    clear: both;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    margin-top: auto;
+}
