@@ -1,7 +1,7 @@
 $(function(){
   // WebGL
   var mainView = document.getElementById('mainView');
-
+  
   // Criar a tela
   var scene = new THREE.Scene();
   
