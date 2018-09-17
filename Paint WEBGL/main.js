@@ -1,63 +1,53 @@
 $(function(){
-    // WEBGL
-    var mainView = document.getElementById('mainView');
+  // WebGL
+  var mainView = document.getElementById('mainView');
 
-    // Create the scene
-    var scene = new THREE.Scene();
-    
-    //Create the camera
-    //PerspectiveCamera(field of view, ratio, inner clipping, outer clipping)
-    var camera = new THREE.PerspectiveCamera(75, mainView.offsetWidth / mainView.offsetHeight, 0.1, 1000);
+  // Criar a tela
+  var scene = new THREE.Scene();
+  
+  //Criar a camera
+  var camera = new THREE.PerspectiveCamera(75, mainView.offsetWidth / mainView.offsetHeight, 0.1, 1000);
 
-    // Create the place to render
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(mainView.offsetWidth, mainView.offsetHeight);
-    mainView.appendChild(renderer.domElement);
+  // Create the place to render
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(mainView.offsetWidth, mainView.offsetHeight);
+  mainView.appendChild(renderer.domElement);
 
-    // Extra viewports
+  // Extra viewports
+  var shape;
+  var material = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
-    var shape;
-    var material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  // Posição da camera
+  camera.position.z = 5;
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-    // Camera positions
-    camera.position.z = 5;
-    camera.lookAt(new THREE.Vector3(0, 0, 0));
+  renderer.render(scene, camera);
 
-    renderer.render(scene, camera);
+  // Set do modo para solido
+  var mode = function(geometry){
+      var mode;
+      material.side = THREE.SingleSide;
+      mode = new THREE.Mesh(geometry, material);
+      return mode;
+  }
 
-    
-    // MODES
-    var mode = function(geometry){
-        var mode;
-        material.side = THREE.SingleSide;
-        mode = new THREE.Mesh(geometry, material);
-        return mode;
-    }
+  var $body = $('body');
 
-    var $body = $('body');
-
-    // SCALE HANDLERS
+  // NUMERAÇÃO DA TECLA
     var upArrow = 38;
     var downArrow = 40;
     var leftArrow = 37;
     var rightArrow = 39;
 
     // TRANSLATION HANDLERS
-    var pos = .2; // Tranlation speed
     var Akey = 65;
     var Dkey = 68;
     var Wkey = 87;
     var Skey = 83;
-    var Qkey = 81;
-    var Ekey = 69;
 
-    // ROTATION HANDLERS
+    // BOTOES DE ROTAÇÃO
     var Ukey = 85;
     var Okey = 79;
-    var Ikey = 73;
-    var Kkey = 75;
-    var Jkey = 74;
-    var Lkey = 76;
 
     $body.keydown(function (event){
         event.preventDefault();
@@ -79,31 +69,7 @@ $(function(){
             shape.position.x += 0.1;
            renderer.render(scene, camera);
             break;
-          case Qkey:
-            shape.position.z += 0.1;
-           renderer.render(scene, camera);
-            break;
-          case Ekey:
-            shape.position.z += -0.1;
-           renderer.render(scene, camera);
-            break;
           // Rotate
-          case Ikey:
-            shape.rotation.y += 0.1;
-            renderer.render(scene, camera);
-            break;
-          case Kkey:
-            shape.rotation.y += -0.1;
-           renderer.render(scene, camera);
-            break;
-          case Jkey:
-            shape.rotation.x -= 0.1;
-           renderer.render(scene, camera);
-            break;
-          case Lkey:
-            shape.rotation.x += 0.1;
-           renderer.render(scene, camera);
-            break;
           case Ukey:
             shape.rotation.z += 0.1;
            renderer.render(scene, camera);
@@ -135,89 +101,50 @@ $(function(){
     });
 
     // COLOR BUTTONS HANDLERS
-    var $whiteBtn = $('.white');
-    var $greyBtn = $(".grey");
-    var $blackBtn = $(".black");
-    var $blueBtn = $(".blue");
-    var $yellowBtn = $(".yellow");
-    var $greenBtn = $(".green");
-    var $pinkBtn = $(".pink");
-    var $orangeBtn = $(".orange");
-    var $purpleBtn = $(".purple");
-    var $skyBlueBtn = $(".sky-blue");
-    var $aquaBtn = $(".aqua");
-    var $darkBlueBtn = $(".dark-blue");
-    var $brownBtn = $(".brown");
-    var $redBtn = $(".red");
+    var $brancoBtn = $('.branco');
+    var $cinzaBtn = $(".cinza");
+    var $pretoBtn = $(".preto");
+    var $azulBtn = $(".azul");
+    var $amareloBtn = $(".amarelo");
+    var $verdeBtn = $(".verde");
+    var $rosaBtn = $(".rosa");
+    var $cianoBtn = $(".ciano");
+    var $vermelhoBtn = $(".vermelho");
 
-    $whiteBtn.click(function(){
-        console.log("I'm white button")
-        material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    $brancoBtn.click(function(){
+        material = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
     });
 
-    $greyBtn.click(function() {
-      console.log("I'm grey button");
+    $cinzaBtn.click(function() {
       material = new THREE.MeshBasicMaterial({ color: 0x808080 });
     });
 
-    $blackBtn.click(function() {
-      console.log("I'm black button");
+    $pretoBtn.click(function() {
        material = new THREE.MeshBasicMaterial({ color: 0x000000 });
     });
 
-    $blueBtn.click(function() {
-      console.log("I'm blue button");
-       material = new THREE.MeshBasicMaterial({ color: 0xadd8e6 });
+    $azulBtn.click(function() {
+       material = new THREE.MeshBasicMaterial({ color: 0x0000FF });
     });
 
-    $yellowBtn.click(function() {
-      console.log("I'm yellow button");
-      material = new THREE.MeshBasicMaterial({ color: 0xdaa520 });
+    $amareloBtn.click(function() {
+      material = new THREE.MeshBasicMaterial({ color: 0xFFFF00 });
     });
 
-    $greenBtn.click(function() {
-      console.log("I'm green button");
-      material = new THREE.MeshBasicMaterial({ color: 0xadff2f });
+    $verdeBtn.click(function() {
+      material = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
     });
 
-    $pinkBtn.click(function() {
-      console.log("I'm pink button");
-      material = new THREE.MeshBasicMaterial({ color: 0xffc0cb });
+    $rosaBtn.click(function() {
+      material = new THREE.MeshBasicMaterial({ color: 0xFF00FF });
     });
 
-    $orangeBtn.click(function() {
-      console.log("I'm orange button");
-      material = new THREE.MeshBasicMaterial({ color: 0xff8c00 });
+    $cianoBtn.click(function() {
+      material = new THREE.MeshBasicMaterial({ color: 0x00FFFF });
     });
 
-    $purpleBtn.click(function() {
-      console.log("I'm purple button");
-      material = new THREE.MeshBasicMaterial({ color: 0x800080 });
-    });
-
-    $skyBlueBtn.click(function() {
-      console.log("I'm sky-blue button");
-      material = new THREE.MeshBasicMaterial({ color: 0x87cefa });
-    });
-
-    $aquaBtn.click(function() {
-      console.log("I'm aqua button");
-      material = new THREE.MeshBasicMaterial({ color: 0x00ffff });
-    });
-
-    $darkBlueBtn.click(function() {
-      console.log("I'm dark-blue button");
-      material = new THREE.MeshBasicMaterial({ color: 0x0000cd });
-    });
-
-    $brownBtn.click(function() {
-      console.log("I'm brown button");
-      material = new THREE.MeshBasicMaterial({ color: 0xdeb887 });
-    });
-
-    $redBtn.click(function() {
-      console.log("I'm red button");
-      material = new THREE.MeshBasicMaterial({ color: 0xf08080 });
+    $vermelhoBtn.click(function() {
+      material = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
     });
 
     // SHAPE BUTTON HANDLERS
