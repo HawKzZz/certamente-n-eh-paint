@@ -149,15 +149,15 @@ $(function(){
 
     // SHAPE BUTTON HANDLERS
 
-    var $segmentBtn = $(".segment");
-    var $triangleBtn = $(".triangle");
-    var $squareBtn = $(".square");
-    var $trapezoidBtn = $(".trapezoid");
-    var $pentagonBtn = $(".pentagon");
-    var $circleBtn = $(".circle");
+    var $retaBtn = $(".reta");
+    var $trianguloBtn = $(".triangulo");
+    var $quadradoBtn = $(".quadrado");
+    var $trapezioBtn = $(".trapezio");
+    var $pentagonoBtn = $(".pentagono");
+    var $circuloBtn = $(".circulo");
 
 
-    $segmentBtn.click(function() {
+    $retaBtn.click(function() {
         var geometry = new THREE.Geometry();
         geometry.vertices.push(new THREE.Vector3(-2, 0, 0));
         geometry.vertices.push(new THREE.Vector3( 2, 0, 0));
@@ -166,7 +166,7 @@ $(function(){
         renderer.render(scene, camera);
     });
 
-    $triangleBtn.click(function() {
+    $trianguloBtn.click(function() {
       var geometry = new THREE.Geometry();
       geometry.vertices.push(new THREE.Vector3(-2, -2, 0));
       geometry.vertices.push(new THREE.Vector3(2, -2, 0));
@@ -178,14 +178,14 @@ $(function(){
       renderer.render(scene, camera);
     });
 
-    $squareBtn.click(function() {
+    $quadradoBtn.click(function() {
       var geometry = new THREE.BoxGeometry(1, 1, 0);
       shape = mode(geometry);
       scene.add(shape);
       renderer.render(scene, camera);
     });
 
-    $trapezoidBtn.click(function() {
+    $trapezioBtn.click(function() {
         var geometry = new THREE.Geometry();
        geometry.vertices.push(new THREE.Vector3(-2, 0, 0));
        geometry.vertices.push(new THREE.Vector3(2, 0, 0));
@@ -199,7 +199,7 @@ $(function(){
       renderer.render(scene, camera);
     });
 
-    $pentagonBtn.click(function() {
+    $pentagonoBtn.click(function() {
       var geometry = new THREE.Geometry();
       geometry.vertices.push(new THREE.Vector3(0, 2, 0));
       geometry.vertices.push(new THREE.Vector3(-2, .5, 0));
@@ -215,7 +215,7 @@ $(function(){
       renderer.render(scene, camera);
     });
 
-    $circleBtn.click(function() {
+    $circuloBtn.click(function() {
       var geometry = new THREE.CircleGeometry(2,100);
       shape = mode(geometry);
       scene.add(shape);

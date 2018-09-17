@@ -8,16 +8,7 @@
 </head>
 <body>
     <div class="interface">
-        
-        <section class="corpo">
-            <header id="cabecalho">
-                <h1>Paint CG</h1>
-            </header>
 
-            <div class="rendererStyle" id="mainView" style="width: 100%; height: 500px;">
-            </div>
-        </section>
-        
         <div class="oculto">
             <h3>Movements</h3>
             <p>A D W S Q E- Translate</p>
@@ -26,35 +17,50 @@
             <p> Only square figures have Texture!</p>
         </div>
 
-        <aside class="direita"> 
-            <div class="pickerSize" id="colorPicker">
-                <ul>
-                    <li><button class="btn-size preto"></button></li>
-                    <li><button class="btn-size cinza"></button></li>
-                    <li><button class="btn-size branco"></button></li>
-                    <li><button class="btn-size azul"></button></li>
-                    <li><button class="btn-size amarelo"></button></li>
-                    <li><button class="btn-size verde"></button></li>
-                    <li><button class="btn-size rosa"></button></li>
-                    <li><button class="btn-size ciano"></button></li>
-                    <li><button class="btn-size vermelho"></button></li>
-                </ul>    
-            </div>
-        </aside>
-        <aside class="esquerda"> 
-            <div class="pickerSize" id="shapePicker">
-                <ul>
-                    <li><button class="forma segment"></button></li>
-                    <li><button class="forma triangle"></button></li>
-                    <li><button class="forma square"></button></li>
-                    <li><button class="forma trapezoid"></button></li>
-                    <li><button class="forma pentagon"></button></li>
-                    <li><button class="forma circle"></button></li>
-                </ul>
+        <div class="aside-esquerda">
+            <ul>
+                <li><button class="forma reta"></button></li>
+                <li><button class="forma triangulo"></button></li>
+                <li><button class="forma quadrado"></button></li>
+                <li><button class="forma trapezio"></button></li>
+                <li><button class="forma pentagono"></button></li>
+                <li><button class="forma circulo"></button></li>
+            </ul>
+        </div>
+
+        <div class="corpo">
+            <header id="cabecalho">
+                <h1>Paint CG</h1>
+            </header>
+            
+            <div class="painel">
+                <div class="rendererStyle" id="mainView" style="width: 100%; height: 500px;">
                 
+                </div>
             </div>
-        </aside>
+        </div>
+
+        <div class="aside-direita">
+            <ul>
+                <li><button class="btn preto"></button></li>
+                <li><button class="btn cinza"></button></li>
+                <li><button class="btn branco"></button></li>
+                <li><button class="btn azul"></button></li>
+                <li><button class="btn amarelo"></button></li>
+                <li><button class="btn verde"></button></li>
+                <li><button class="btn rosa"></button></li>
+                <li><button class="btn ciano"></button></li>
+                <li><button class="btn vermelho"></button></li>
+            </ul>    
+        </div>
     </div>
+    
+    <footer class="rodape">
+        <p>
+            Copyright &copy; 2018 - by João Villar & Lucas Stamford & Matheus Santa Cruz
+        </p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="./libs/three.min.js"></script>
